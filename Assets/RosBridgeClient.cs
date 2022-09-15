@@ -145,6 +145,14 @@ public class RosBridgeClient : MonoBehaviour {
 			GameObject.Find("face").GetComponent<faceHandler>().SetNotification(msg);
 			Debug.Log("Notification: " + msg);
 		}
+		else if(msg.StartsWith("Emote:")){
+
+			msg = msg.Replace("Emote:", "");
+			if(msg.StartsWith("Sad")){
+				GameObject.Find("face").GetComponent<faceHandler>().SetFaceTrigger("Sad");
+			}
+			Debug.Log("Emote: " + msg);
+		}
 		// else if(msg.StartsWith("Weather:")){
 		//
 		// 	msg = msg.Replace("Weather:", "");
